@@ -16,7 +16,8 @@ jobs:
       - name: Check changed files
         id: changes
         run: |
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          git fetch origin main
+          CHANGED_FILES=$(git diff --name-only origin/main...HEAD)
           echo "$CHANGED_FILES"
 
           if echo "$CHANGED_FILES" | grep -v '^public/assets/' > /dev/null; then
