@@ -1,0 +1,38 @@
+name: Build and Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Install trunk
+        run: cargo install --locked trunk
+
+      - name: Build website
+        run: trunk build --release
+
+      - name: Copy files and reload Nginx
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ADDRESS: ${{ secrets.ADDRESS }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          
+          rsync -avz --delete ./dist/ "$ADDRESS":/var/www/html/nar1nari.space
+          ssh -o StrictHostKeyChecking=no "$ADDRESS" "sudo systemctl reload nginx"
