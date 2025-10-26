@@ -1,0 +1,346 @@
+:root {
+    --bg-color: #60ae7b;
+    --bg-light-color: #b6cf8e;
+    --fg-color: #1f244b;
+    --mark-color: #a8605d;
+}
+
+@font-face {
+    font-family: "CaskaydiaCove Nerd Font";
+    src: url("assets/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CaskaydiaCove Nerd Font";
+    src: url("assets/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CaskaydiaCove Nerd Font";
+    src: url("assets/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "CaskaydiaCove Nerd Font";
+    src: url("assets/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ---------------------------------------------------------- */
+/* Main */
+/* ---------------------------------------------------------- */
+
+html {
+    background-image: url("assets/images/bg_tile.png");
+    font-family: "CaskaydiaCove Nerd Font", monospace;
+    font-size: 20px;
+    animation: moveBg 60s linear infinite;
+}
+
+@keyframes moveBg {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 2560px 2560px;
+    }
+}
+
+header {
+    background: var(--bg-color);
+    border: solid 4px var(--fg-color);
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 800px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+header a {
+    background: none;
+    border: solid 2px var(--fg-color);
+    color: var(--fg-color);
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+header a:hover {
+    background: var(--fg-color);
+    color: var(--bg-color);
+}
+
+main {
+    background: var(--bg-color);
+    color: var(--fg-color);
+    border: solid 4px var(--fg-color);
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+a,
+mark {
+    background: none;
+    color: var(--mark-color);
+    font-style: italic;
+    text-decoration: none;
+}
+
+mark {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 0.5rem;
+}
+
+.hatman {
+    width: 10rem;
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+.footer p {
+    margin: 0px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+ul li.heart-li {
+    list-style: none;
+    position: relative;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+ul li.heart-li::before {
+    content: "\f004";
+    position: absolute;
+    left: 0.05rem;
+    font-size: 15px;
+    line-height: 1;
+}
+
+hr {
+    color: var(--fg-color);
+}
+
+pre {
+    text-align: left;
+    tab-size: 4;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+q {
+    font-size: 0.8rem;
+}
+
+.comment {
+    font-size: 0.8rem;
+    margin-top: 0;
+}
+
+iframe {
+    border: 3px solid var(--fg-color);
+    box-shadow: 3px 3px 0 var(--fg-color);
+}
+
+/* ---------------------------------------------------------- */
+/* Music */
+/* ---------------------------------------------------------- */
+
+.music-card {
+    background: var(--bg-light-color);
+    border: 3px solid var(--fg-color);
+    color: var(--fg-color);
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 3px 3px 0 var(--fg-color);
+    margin-top: 1rem;
+}
+
+.music-card h2 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.music-card p {
+    margin-bottom: 0.8rem;
+    color: var(--fg-color);
+}
+
+.music-card audio {
+    width: 100%;
+    background-color: var(--bg-light-color);
+}
+
+/* ---------------------------------------------------------- */
+/* Projects */
+/* ---------------------------------------------------------- */
+
+.project-card a {
+    background: none;
+    border: solid 2px var(--fg-color);
+    color: var(--fg-color);
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.project-card a:hover {
+    background: var(--fg-color);
+    color: var(--bg-color);
+}
+
+.project-card {
+    background: var(--bg-color);
+    border: 3px solid var(--fg-color);
+    box-shadow: 3px 3px 0 var(--fg-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.project-card img {
+    width: 160px;
+    padding: 0.2rem;
+    object-fit: contain;
+    border: 3px solid var(--fg-color);
+}
+
+.project-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.project-card h2 {
+    margin: 0.8rem 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.project-card p {
+    margin-top: 0;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* ---------------------------------------------------------- */
+/* Blog */
+/* ---------------------------------------------------------- */
+
+.blog-card {
+    border: 3px solid var(--fg-color);
+    box-shadow: 3px 3px 0 var(--fg-color);
+    padding: 1rem;
+    text-align: left;
+}
+
+.blog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.blog-title h1,
+.blog-title h3,
+.blog-title p {
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .blog-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .blog-title p::before {
+        content: "";
+        margin: 0;
+    }
+}
+
+.blog-title p::before {
+    content: "\f444";
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.tags {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tags p {
+    display: inline;
+    background-color: var(--mark-color);
+    padding: 0.3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 30px;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.blog-link {
+    color: var(--fg-color);
+    font-style: normal;
+}
+
+.blog-post {
+    text-align: left;
+}
