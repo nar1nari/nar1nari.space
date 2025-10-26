@@ -36,6 +36,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+
+          ssh-keyscan -H "$ADDRESS" >> ~/.ssh/known_hosts
           
           rsync -avz --delete ./dist/ "$ADDRESS":/var/www/html/nar1nari.space
           ssh -o StrictHostKeyChecking=no "$ADDRESS" "sudo systemctl reload nginx"
