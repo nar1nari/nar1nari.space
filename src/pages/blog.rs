@@ -3,7 +3,7 @@ use leptos::reactive::spawn_local;
 
 use crate::{
     blogs::{fetch_all_blogs, BlogPost},
-    components::blog_card::BlogCrad,
+    components::blog_card::BlogCard,
 };
 
 #[component]
@@ -14,14 +14,16 @@ pub fn Blog() -> impl IntoView {
     });
 
     view! {
-        <For
-            each=move || blogs.get()
-            key=|post| post.slug.clone()
-            children=move |post: BlogPost| {
-                view! {
-                    <BlogCrad post=&post/>
+        <div class="blog-list">
+            <For
+                each=move || blogs.get()
+                key=|post| post.slug.clone()
+                children=move |post: BlogPost| {
+                    view! {
+                        <BlogCard post=&post/>
+                    }
                 }
-            }
-        />
+            />
+        </div>
     }
 }
