@@ -31,13 +31,14 @@ jobs:
       - name: Copy files and reload Nginx
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ADDRESS: ${{ secrets.ADDRESS }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-          ssh-keyscan -H "$ADDRESS" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
           
-          rsync -avz --delete ./dist/ "$ADDRESS":/var/www/html/nar1nari.space
-          ssh -o StrictHostKeyChecking=no "$ADDRESS" "sudo systemctl reload nginx"
+          rsync -avz --delete ./dist/ "${SSH_USER}@${SSH_HOST}":/var/www/html/nar1nari.space
+          ssh -o StrictHostKeyChecking=no "${SSH_USER}@${SSH_HOST}" "sudo systemctl reload nginx"
