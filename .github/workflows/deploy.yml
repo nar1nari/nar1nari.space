@@ -13,32 +13,59 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Check changed files
+        id: changes
+        run: |
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -v '^public/assets/' > /dev/null; then
+            echo "build_needed=true" >> $GITHUB_OUTPUT
+          else
+            echo "build_needed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install SSH key
+        if: always()
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: Install Rust
+        if: steps.changes.outputs.build_needed == 'true'
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           override: true
 
       - name: Add wasm target
+        if: steps.changes.outputs.build_needed == 'true'
         run: rustup target add wasm32-unknown-unknown
 
       - name: Install trunk
+        if: steps.changes.outputs.build_needed == 'true'
         run: cargo install --locked trunk
 
       - name: Build website
+        if: steps.changes.outputs.build_needed == 'true'
         run: trunk build --release
 
-      - name: Copy files and reload Nginx
+      - name: Deploy
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
           ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
-          
-          rsync -avz --delete ./dist/ "${SSH_USER}@${SSH_HOST}":/var/www/html/nar1nari.space
+
+          if [ "${{ steps.changes.outputs.build_needed }}" = "true" ]; then
+            echo "Performing full deploy..."
+            rsync -avz --delete ./dist/ "${SSH_USER}@${SSH_HOST}":/var/www/html/nar1nari.space
+          else
+            echo "Only assets changed - updating assets..."
+            rsync -avz --delete ./public/assets/ "${SSH_USER}@${SSH_HOST}":/var/www/html/nar1nari.space/assets/
+          fi
+
           ssh -o StrictHostKeyChecking=no "${SSH_USER}@${SSH_HOST}" "sudo systemctl reload nginx"
