@@ -1,41 +1,75 @@
-use leptos::prelude::*;
+use leptos::{prelude::*, reactive::spawn_local};
 
-use crate::components::new_tab_link::NewTabLink;
+use crate::{
+    blogs::{fetch_all_blogs, BlogPost},
+    components::{blog_card::BlogCard, new_tab_link::NewTabLink},
+};
 
 #[component]
 pub fn Home() -> impl IntoView {
+    let latest_blog = RwSignal::new(BlogPost::default());
+    spawn_local(async move {
+        if let Some(blog) = fetch_all_blogs().await.first() {
+            latest_blog.set(blog.clone());
+        }
+    });
+
     view! {
-        <img src="assets/images/hatman.gif" alt="hatman" class="hatman"/>
-        <h2> "Hi and welcome to "<mark> " nar1nari.space " </mark> </h2>
-        <p> "Welcome to my website. Here you can find my projects, blog posts, and other things." </p>
+        <h2>"Welcome to " <mark>"nar1nari.space"</mark></h2>
+        <p>"Hi! I\'m nar1nari, but you can just call me nari."</p>
+        <p>
+            "I\'m passionate about programming and other silly stuff. My main language is Rust, though I like experimenting with other technologies from time to time."
+        </p>
+        <p>"On this website, you\'ll find my projects, blogs and other stuff made by me."</p>
+        <p>"Feel free to explore if you're curious!"</p>
 
-        <h2> "About me" </h2>
-        <ul>
-            <li> "nari" </li>
-            <li> "19 y.o" </li>
-            <li> "IT&AI student" </li>
-            <li class="heart-li"> "Rust" </li>
-            <li class="heart-li"> "FGSFDS" </li>
-            <li class="heart-li"> <NewTabLink href="https://akrosha.neocities.org/" text="Akro"/>  </li>
-        </ul>
+        <div class="section-grid">
+            <section>
+                <h2>"Facts about me"</h2>
+                <ul>
+                    <li>"nari"</li>
+                    <li>"19 y.o"</li>
+                    <li>"🇰🇿"</li>
+                    <li>"IT&AI student"</li>
+                    <li class="heart-li">"FGSFDS"</li>
+                    <li class="heart-li">
+                        <NewTabLink href="https://akrosha.neocities.org/">"Akro"</NewTabLink>
+                    </li>
+                </ul>
+            </section>
 
-        <h2>"Say hi here"</h2>
-        <div inner_html="
-        <iframe src=\"https://www5.cbox.ws/box/?boxid=955415&boxtag=15Wv1V\" width=\"100%\" height=\"450\" allow=\"autoplay\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\" scrolling=\"auto\"></iframe>"
-        >
+            <section>
+                <h2>"Find me here"</h2>
+                <p>
+                    <i class="icon">"󰊤 "</i>
+                    <NewTabLink href="https://github.com/nar1nari/">"GitHub"</NewTabLink>
+                    <br />
+                    <i class="icon">" "</i>
+                    <NewTabLink href="https://t.me/nar1nari/">"Telegram"</NewTabLink>
+                    <br />
+                    <i class="icon">" "</i>
+                    "good_vibrations"
+                    <br />
+                    <i class="icon">" "</i>
+                    <a href="mailto:nar1nariq@proton.me">"nar1nariq@proton.me"</a>
+                </p>
+            </section>
         </div>
+
+        <h2>"Latest blog post"</h2>
+        {move || {
+            latest_blog
+                .with(|post| {
+                    view! { <BlogCard post=post /> }
+                })
+        }}
 
         <footer class="footer">
             <p>
-                "This website was made with "
-                <NewTabLink href="https://rust-lang.org/" text="Rust"/>
-                " and "
-                <NewTabLink href="https://leptos.dev/" text="Leptos"/>
-                "."
-            </p>
-            <p>
-                "With "
-                <NewTabLink href="https://lospec.com/palette-list/paper-8" text="Paper 8 Palette"/>
+                "This website was made with " <NewTabLink href="https://rust-lang.org/">
+                    <i class="icon">""</i>
+                    " Rust"
+                </NewTabLink> " and " <NewTabLink href="https://leptos.dev/">"Leptos"</NewTabLink>
                 "."
             </p>
         </footer>

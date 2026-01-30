@@ -14,14 +14,12 @@ pub fn Blog() -> impl IntoView {
     });
 
     view! {
-        <div class="blog-list">
+        <div class="section-list">
             <For
                 each=move || blogs.get()
                 key=|post| post.slug.clone()
                 children=move |post: BlogPost| {
-                    view! {
-                        <BlogCard post=&post/>
-                    }
+                    view! { <BlogCard post=&post /> }
                 }
             />
         </div>

@@ -1,7 +1,7 @@
 use leptos::{prelude::*, reactive::spawn_local};
 use leptos_router::hooks::use_params_map;
 
-use crate::blogs::fetch_all_blogs;
+use crate::{blogs::fetch_all_blogs, pages::not_found::NotFound};
 
 #[component]
 pub fn BlogPage() -> impl IntoView {
@@ -18,19 +18,21 @@ pub fn BlogPage() -> impl IntoView {
 
     view! {
         {move || match post.get() {
-            Some(p) => view! {
-                <div class="blog-post">
-                    <div class="blog-title">
-                        <h1>{p.title}</h1>
-                        <p>{p.date}</p>
+            Some(p) => {
+                view! {
+                    <div class="blog-post">
+                        <div class="blog-title">
+                            <h1>{p.title}</h1>
+                            <p>{p.date}</p>
+                        </div>
+                        <hr />
+                        <div inner_html=p.content_html />
                     </div>
-                    <hr/>
-                    <div inner_html=p.content_html/>
-                </div>
-            }.into_any().into_view(),
-            None => view! {
-                <p> "Blog post not found." </p>
-            }.into_any().into_view()
+                }
+                    .into_any()
+                    .into_view()
+            }
+            None => view! { <NotFound /> }.into_any().into_view(),
         }}
     }
 }

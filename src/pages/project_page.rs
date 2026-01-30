@@ -12,13 +12,15 @@ pub fn ProjectPage() -> impl IntoView {
 
     view! {
         {match project {
-            Some(p) => view!{
-                <h1> {p.name} </h1>
-                {(p.read_component)()}
-            }.into_any().into_view(),
-            None => view! {
-                <p>"Project not found."</p>
-            }.into_any().into_view(),
+            Some(p) => {
+                view! {
+                    <h1>{p.name}</h1>
+                    {(p.read_component)()}
+                }
+                    .into_any()
+                    .into_view()
+            }
+            None => view! { <p>"Project not found."</p> }.into_any().into_view(),
         }}
     }
 }

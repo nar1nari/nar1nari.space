@@ -8,6 +8,7 @@ mod music;
 mod pages;
 mod projects;
 
+use crate::components::new_tab_link::NewTabLink;
 use crate::pages::*;
 
 #[component]
@@ -22,25 +23,33 @@ pub fn App() -> impl IntoView {
         <Meta charset="UTF-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <header>
-            <a href="/"> "Home" </a>
-            <a href="/projects"> "Projects" </a>
-            <a href="/blog"> "Blog" </a>
-            <a href="/music"> "Music" </a>
-            <a href="/findme"> "Find me" </a>
-        </header>
-        <main>
-            <Router>
+        <Router>
+            <header>
+                <nav>
+                    <A href="/">"Home"</A>
+                    <A href="/projects">"Projects"</A>
+                    <A href="/blog">"Blog"</A>
+                    <A href="/music">"Music"</A>
+                </nav>
+                <div class="github-icon icon">
+                    <NewTabLink href="https://github.com/nar1nari/nar1nari.space">
+                        " "
+                    </NewTabLink>
+                </div>
+            </header>
+            <main>
                 <Routes fallback=|| not_found::NotFound>
                     <Route path=path!("/") view=home::Home />
                     <Route path=path!("/projects") view=pages::projects::Projects />
-                    <Route path=path!("/projects/:slug/read") view=pages::project_page::ProjectPage />
+                    <Route
+                        path=path!("/projects/:slug/read")
+                        view=pages::project_page::ProjectPage
+                    />
                     <Route path=path!("/blog") view=pages::blog::Blog />
                     <Route path=path!("/blog/:slug") view=pages::blog_page::BlogPage />
                     <Route path=path!("/music") view=pages::music::Music />
-                    <Route path=path!("/findme") view=findme::FindMe />
                 </Routes>
-            </Router>
-        </main>
+            </main>
+        </Router>
     }
 }

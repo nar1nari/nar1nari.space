@@ -3,7 +3,9 @@ use leptos::prelude::*;
 #[component]
 pub fn NotFound() -> impl IntoView {
     view! {
-        <p>"Hic sunt dracones"</p>
-        <img src="/assets/images/dragon.png"/>
+        <div class="not-found">
+            <h1>"Page not found."</h1>
+            <p>"404"</p>
+        </div>
     }
 }
