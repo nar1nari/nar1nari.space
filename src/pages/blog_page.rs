@@ -1,7 +1,7 @@
 use leptos::{prelude::*, reactive::spawn_local};
 use leptos_router::hooks::use_params_map;
 
-use crate::{blogs::fetch_all_blogs, pages::not_found::NotFound};
+use crate::{blogs::fetch_all_blogs, components::comments::Comments, pages::not_found::NotFound};
 
 #[component]
 pub fn BlogPage() -> impl IntoView {
@@ -28,6 +28,8 @@ pub fn BlogPage() -> impl IntoView {
                         <hr />
                         <div inner_html=p.content_html />
                     </div>
+
+                    <Comments />
                 }
                     .into_any()
                     .into_view()

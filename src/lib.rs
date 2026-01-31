@@ -23,6 +23,8 @@ pub fn App() -> impl IntoView {
         <Meta charset="UTF-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <Script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" />
+
         <Router>
             <header>
                 <nav>

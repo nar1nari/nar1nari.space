@@ -1,3 +1,5 @@
+@import "https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css";
+
 :root {
     --bg0: #161616;
     --bg1: #262626;
@@ -327,4 +329,89 @@ audio {
     font-weight: bold;
     font-size: 10em;
     color: var(--red);
+}
+
+/* ---------------------------------------------------------- */
+/* Comments */
+/* ---------------------------------------------------------- */
+
+.gt-container .gt-header-textarea,
+.gt-container .gt-header-textarea:hover,
+.gt-container .gt-header-preview {
+    background-color: var(--bg1);
+    color: var(--fg);
+}
+
+.gt-container .gt-btn-preview {
+    color: var(--green);
+    border-color: var(--green);
+    background-color: var(--bg0);
+}
+.gt-container .gt-btn-preview:hover {
+    color: var(--green);
+    border-color: var(--green);
+    background-color: var(--bg1);
+}
+
+.gt-container .gt-btn-public {
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--bg0);
+}
+
+.gt-container .gt-btn-public:hover {
+    color: var(--bg1);
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.gt-container a:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.gt-container .gt-comment-admin .gt-comment-content {
+  background-color: var(--bg1);
+  border: 1px solid var(--bg2);
+  border-radius: 5px;
+}
+
+.gt-container .gt-comment-body {
+    color: var(--fg) !important;
+}
+
+.gt-container .gt-comment-username {
+    color: var(--green);
+}
+
+.gt-container .gt-comment-content:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.gt-container a.gt-link.gt-link-counts {
+    color: var(--green);
+}
+
+.gt-container .gt-popup {
+    background-color: var(--bg1);
+    border-color: var(--bg2);
+    border-radius: 5px;
+}
+
+.gt-container a.is--active {
+  color: var(--fg);
+  cursor: default !important;
+}
+.gt-container a.is--active:hover {
+  color: var(--fg);
+}
+
+.gt-container .gt-error {
+    color: var(--red);
+}
+
+.gt-container .gt-meta {
+    border-bottom: 1px solid var(--bg1);
+    margin-top: 0;
 }

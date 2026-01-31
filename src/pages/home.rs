@@ -2,7 +2,7 @@ use leptos::{prelude::*, reactive::spawn_local};
 
 use crate::{
     blogs::{fetch_all_blogs, BlogPost},
-    components::{blog_card::BlogCard, new_tab_link::NewTabLink},
+    components::{blog_card::BlogCard, comments::Comments, new_tab_link::NewTabLink},
 };
 
 #[component]
@@ -63,6 +63,9 @@ pub fn Home() -> impl IntoView {
                     view! { <BlogCard post=post /> }
                 })
         }}
+
+        <h2 style="margin: 0; margin-top: 1em;">"Say hi here"</h2>
+        <Comments />
 
         <footer class="footer">
             <p>
