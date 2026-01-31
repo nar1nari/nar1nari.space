@@ -376,6 +376,10 @@ audio {
   border-radius: 5px;
 }
 
+.gt-container .gt-comment-content {
+    background-color: var(--bg1);
+}
+
 .gt-container .gt-comment-body {
     color: var(--fg) !important;
 }
