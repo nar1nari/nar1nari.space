@@ -1,4 +1,5 @@
 mod sylvie;
+mod trackpresence;
 mod zenith;
 
 use leptos::prelude::*;
@@ -12,5 +13,5 @@ pub struct Project {
 }
 
 impl Project {
-    pub const ALL: &'static [Project] = &[zenith::PROJECT, sylvie::PROJECT];
+    pub const ALL: &'static [Project] = &[trackpresence::PROJECT, zenith::PROJECT, sylvie::PROJECT];
 }

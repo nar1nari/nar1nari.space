@@ -15,6 +15,7 @@ pub fn ProjectPage() -> impl IntoView {
             Some(p) => {
                 view! {
                     <h1>{p.name}</h1>
+                    <hr />
                     {(p.read_component)()}
                 }
                     .into_any()
