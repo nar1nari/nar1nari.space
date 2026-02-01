@@ -23,13 +23,13 @@ pub fn SylvieRead() -> impl IntoView {
             and handle a few roleplay and admin commands like auto-greetings and language settings.
             But the thing that really made her stand out was the built-in AI."
         </p>
-        <img src="/assets/images/sylvie_help.png" />
+        <img src="/assets/images/sylvie_help.webp" />
         <p>
             "Each server gets its own memory, and Sylvie herself has a bit of personality - even a backstory.
             She's more than just a bot. She feels like a character that grew along with the project."
         </p>
 
-        <img src="/assets/images/sylvie_soap.png" />
+        <img src="/assets/images/sylvie_soap.webp" />
         <q>
             "- Sylvie, please tell me how I can stop getting angry about losing matches?" <br />
             "- Adam, I'm sorry, but I don't think I can help you with this. You know what nari said...
@@ -42,7 +42,7 @@ pub fn SylvieRead() -> impl IntoView {
             It’s kind of wild, looking back, how something that started as a small side project turned into a companion that people actually interact with every day.
             Seeing friends talk to her like she was one of us… that was the moment I realized Sylvie had grown beyond just lines of code."
         </p>
-        <img src="/assets/images/sylvie_minecraft.png" />
+        <img src="/assets/images/sylvie_minecraft.webp" />
 
         <p>
             "You can add Sylvie to your Discord server by clicking "

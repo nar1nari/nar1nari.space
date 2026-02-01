@@ -8,7 +8,7 @@ pub fn ProjectCard(#[prop()] project: &'static Project) -> impl IntoView {
     view! {
         <section class="project-card">
             <img
-                src=format!("assets/images/{}_icon.png", project.slug)
+                src=format!("assets/images/{}_icon.webp", project.slug)
                 alt=format!("{} icon", project.slug)
             />
 

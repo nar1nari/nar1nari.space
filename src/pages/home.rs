@@ -1,4 +1,5 @@
 use leptos::{prelude::*, reactive::spawn_local};
+use leptos_meta::Title;
 
 use crate::{
     blogs::{fetch_all_blogs, BlogPost},
@@ -15,6 +16,8 @@ pub fn Home() -> impl IntoView {
     });
 
     view! {
+        <Title text="nar1nari space" />
+
         <h2>"Welcome to " <mark>"nar1nari.space"</mark></h2>
         <p>"Hi! I\'m nar1nari, but you can just call me nari."</p>
         <p>

@@ -14,7 +14,7 @@ pub const PROJECT: Project = Project {
 #[component]
 pub fn TrackPresenceRead() -> impl IntoView {
     view! {
-        <img src="/assets/images/trackpresence_cover.png" />
+        <img src="/assets/images/trackpresence_cover.webp" />
         <p>
             "Track Presence is a lightweight Discord music status application that tracks what you’re listening to and displays it on Discord. It’s modular, fully local, and extremely resource-efficient."
         </p>

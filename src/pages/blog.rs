@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use leptos::reactive::spawn_local;
+use leptos_meta::Title;
 
 use crate::{
     blogs::{fetch_all_blogs, BlogPost},
@@ -14,6 +15,8 @@ pub fn Blog() -> impl IntoView {
     });
 
     view! {
+        <Title text="Blog" />
+
         <div class="section-list">
             <For
                 each=move || blogs.get()

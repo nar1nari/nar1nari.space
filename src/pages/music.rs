@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_meta::Title;
 
 use crate::components::music_card::MusicCard;
 use crate::music::Music;
@@ -6,6 +7,8 @@ use crate::music::Music;
 #[component]
 pub fn Music() -> impl IntoView {
     view! {
+        <Title text="Music" />
+
         <p>
             "Back in 2024, I tried making music in LMMS." <br />
             "It's not exactly something you'd wanna put on repeat, but making it was fun."

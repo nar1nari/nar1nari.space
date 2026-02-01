@@ -1,7 +1,8 @@
 use leptos::prelude::*;
 use leptos_router::hooks::use_params_map;
+use leptos_meta::Title;
 
-use crate::projects::Project;
+use crate::{pages::not_found::NotFound, projects::Project};
 
 #[component]
 pub fn ProjectPage() -> impl IntoView {
@@ -14,6 +15,8 @@ pub fn ProjectPage() -> impl IntoView {
         {match project {
             Some(p) => {
                 view! {
+                    <Title text={p.name} />
+
                     <h1>{p.name}</h1>
                     <hr />
                     {(p.read_component)()}
@@ -21,7 +24,7 @@ pub fn ProjectPage() -> impl IntoView {
                     .into_any()
                     .into_view()
             }
-            None => view! { <p>"Project not found."</p> }.into_any().into_view(),
+            None => view! { <NotFound /> }.into_any().into_view(),
         }}
     }
 }
