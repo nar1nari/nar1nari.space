@@ -17,6 +17,7 @@
     font-weight: 100 700;
     font-stretch: 75% 125%;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
