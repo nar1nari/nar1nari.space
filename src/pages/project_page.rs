@@ -1,6 +1,6 @@
 use leptos::prelude::*;
-use leptos_router::hooks::use_params_map;
 use leptos_meta::Title;
+use leptos_router::hooks::use_params_map;
 
 use crate::{pages::not_found::NotFound, projects::Project};
 
@@ -15,7 +15,7 @@ pub fn ProjectPage() -> impl IntoView {
         {match project {
             Some(p) => {
                 view! {
-                    <Title text={p.name} />
+                    <Title text=p.name />
 
                     <h1>{p.name}</h1>
                     <hr />

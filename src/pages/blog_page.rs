@@ -1,6 +1,6 @@
 use leptos::{prelude::*, reactive::spawn_local};
-use leptos_router::hooks::use_params_map;
 use leptos_meta::Title;
+use leptos_router::hooks::use_params_map;
 
 use crate::{blogs::fetch_all_blogs, components::comments::Comments, pages::not_found::NotFound};
 
@@ -21,7 +21,7 @@ pub fn BlogPage() -> impl IntoView {
         {move || match post.get() {
             Some(p) => {
                 view! {
-                    <Title text={p.title.clone()} />
+                    <Title text=p.title.clone() />
 
                     <div class="blog-post">
                         <div class="blog-title">
