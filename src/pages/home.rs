@@ -1,3 +1,4 @@
+use chrono::Datelike;
 use leptos::{prelude::*, reactive::spawn_local};
 use leptos_meta::Title;
 
@@ -8,6 +9,20 @@ use crate::{
 
 #[component]
 pub fn Home() -> impl IntoView {
+    const BIRTH_YEAR: i32 = 2006;
+    const BIRTH_MONTH: u32 = 3;
+    const BIRTH_DAY: u32 = 12;
+
+    let age = {
+        let now = chrono::Local::now();
+        let mut age = now.year() - BIRTH_YEAR;
+
+        if now.month() < BIRTH_MONTH || (now.month() == BIRTH_MONTH && now.day() < BIRTH_DAY) {
+            age -= 1;
+        }
+        age
+    };
+
     let latest_blog = RwSignal::new(BlogPost::default());
     spawn_local(async move {
         if let Some(blog) = fetch_all_blogs().await.first() {
@@ -31,7 +46,7 @@ pub fn Home() -> impl IntoView {
                 <h2>"Facts about me"</h2>
                 <ul>
                     <li>"nari"</li>
-                    <li>"19 y.o"</li>
+                    <li>{age} " y.o"</li>
                     <li>"🇰🇿"</li>
                     <li>"IT&AI student"</li>
                     <li class="heart-li">"FGSFDS"</li>
