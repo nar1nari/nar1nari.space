@@ -414,3 +414,9 @@ audio {
     border-bottom: 1px solid var(--bg1);
     margin-top: 0;
 }
+
+.gt-container .gt-btn.gt-btn-login {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--bg0);
+}

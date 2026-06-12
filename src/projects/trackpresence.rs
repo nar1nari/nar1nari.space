@@ -22,7 +22,7 @@ pub fn TrackPresenceRead() -> impl IntoView {
             "Track Presence reads information about the currently playing music in your system media player and displays it as Discord Rich Presence."
         </p>
         <p>
-            "At the moment, it only supports Linux via MPRIS, but there are plans to port it to Windows and possibly MacOS in the future."
+            "At the moment, it supports Linux via MPRIS, and Windows via Windows Media."
         </p>
 
         <p>

@@ -18,10 +18,12 @@ pub fn ProjectCard(#[prop()] project: &'static Project) -> impl IntoView {
                     <p>{project.desctiption}</p>
                 </div>
                 <nav>
-                    {project
-                        .view_link
-                        .map(|link| view! { <NewTabLink href=link>"View"</NewTabLink> })}
-                    <a href=format!("/projects/{}/read", project.slug)>"Read"</a>
+                    <a href=format!("/projects/{}/read", project.slug)> <i class="icon">" "</i> "Read"</a>
+                    {
+                        project
+                            .view_link
+                            .map(|link| view! { <NewTabLink href=link> <i class="icon">" "</i> "View"</NewTabLink> })
+                    }
                 </nav>
             </div>
         </section>

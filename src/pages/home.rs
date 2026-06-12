@@ -33,25 +33,31 @@ pub fn Home() -> impl IntoView {
     view! {
         <Title text="nar1nari space" />
 
-        <h2>"Welcome to " <mark>"nar1nari.space"</mark></h2>
-        <p>"Hi! I\'m nar1nari, but you can just call me nari."</p>
+        <h2>"Hi, and welcome to " <mark>"nar1nari.space"</mark></h2>
         <p>
-            "I\'m passionate about programming and other silly stuff. My main language is Rust, though I like experimenting with other technologies from time to time."
+            "I’m a software developer focused on building automation systems, bots, and backend services that eliminate manual work."
         </p>
-        <p>"On this website, you\'ll find my projects, blogs and other stuff made by me."</p>
-        <p>"Feel free to explore if you're curious!"</p>
+        <p>
+            "Personally, my heart belongs to Rust and Python. When I'm not writing production backend systems, you'll find me experimenting with UI frameworks like Leptos, tinkering with desktop applications, or messing around with game engines."
+        </p>
+        <p>
+            "I like clean code, surreal humor, and building tools that make life a little easier. Feel free to explore my blog posts or check out my projects."
+        </p>
 
         <div class="section-grid">
             <section>
                 <h2>"Facts about me"</h2>
                 <ul>
-                    <li>"nari"</li>
+                    <li>"Viktor"</li>
                     <li>{age} " y.o"</li>
                     <li>"🇰🇿"</li>
                     <li>"IT&AI student"</li>
                     <li class="heart-li">"FGSFDS"</li>
                     <li class="heart-li">
-                        <NewTabLink href="https://akrosha.neocities.org/">"Akro"</NewTabLink>
+                        <NewTabLink href="https://rinfiler.ru/">"Akro"</NewTabLink>
+                    </li>
+                    <li class="heart-li">
+                        <NewTabLink href="https://hlebcraft.su/">"Хлебкрафт"</NewTabLink>
                     </li>
                 </ul>
             </section>
@@ -67,6 +73,9 @@ pub fn Home() -> impl IntoView {
                     <br />
                     <i class="icon">" "</i>
                     "good_vibrations"
+                    <br />
+                    <i class="icon">" "</i>
+                    <a href="https://www.upwork.com/freelancers/~010ac7b5be702b579d">"Upwork"</a>
                     <br />
                     <i class="icon">" "</i>
                     <a href="mailto:nar1nariq@proton.me">"nar1nariq@proton.me"</a>
