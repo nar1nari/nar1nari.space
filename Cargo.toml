@@ -25,6 +25,7 @@ gloo-timers = "0.3"
 js-sys = "0.3"
 web-sys = { version = "0.3", features = ["Window"] }
 chrono = { version = "0.4.44", features = ["wasmbind"] }
+gloo-net = "0.7.0"
 
 # utils
 # strum = { version = "0.25", features = ["derive", "strum_macros"] }

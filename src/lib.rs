@@ -7,6 +7,7 @@ mod components;
 mod music;
 mod pages;
 mod projects;
+mod games;
 
 use crate::components::new_tab_link::NewTabLink;
 use crate::pages::*;
@@ -27,6 +28,7 @@ pub fn App() -> impl IntoView {
                 <nav>
                     <A href="/">"Home"</A>
                     <A href="/projects">"Projects"</A>
+                    <A href="/games">"Games"</A>
                     <A href="/blog">"Blog"</A>
                     <A href="/music">"Music"</A>
                 </nav>
@@ -44,6 +46,7 @@ pub fn App() -> impl IntoView {
                         path=path!("/projects/:slug/read")
                         view=pages::project_page::ProjectPage
                     />
+                    <Route path=path!("/games") view=pages::games::Games />
                     <Route path=path!("/blog") view=pages::blog::Blog />
                     <Route path=path!("/blog/:slug") view=pages::blog_page::BlogPage />
                     <Route path=path!("/music") view=pages::music::Music />

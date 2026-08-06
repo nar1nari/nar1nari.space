@@ -5,3 +5,4 @@ pub mod music;
 pub mod not_found;
 pub mod project_page;
 pub mod projects;
+pub mod games;
