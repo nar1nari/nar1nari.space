@@ -7,6 +7,7 @@ pub const PROJECT: Project = Project {
     name: "Sylvie",
     slug: "sylvie",
     desctiption: "multifunctional AI Discord bot",
+    icon: "assets/images/sylvie_icon.webp",
     view_link: Some("https://discord.com/oauth2/authorize?client_id=1276848855656435722"),
     read_component: || SylvieRead().into_any().into_view(),
 };

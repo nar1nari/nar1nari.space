@@ -75,7 +75,9 @@ pub fn Home() -> impl IntoView {
                     "good_vibrations"
                     <br />
                     <i class="icon">" "</i>
-                    <NewTabLink href="https://www.upwork.com/freelancers/~010ac7b5be702b579d">"Upwork"</NewTabLink>
+                    <NewTabLink href="https://www.upwork.com/freelancers/~010ac7b5be702b579d">
+                        "Upwork"
+                    </NewTabLink>
                     <br />
                     <i class="icon">" "</i>
                     <a href="mailto:nar1nariq@proton.me">"nar1nariq@proton.me"</a>

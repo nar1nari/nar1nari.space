@@ -7,6 +7,7 @@ pub const PROJECT: Project = Project {
     name: "Zenith",
     slug: "zenith",
     desctiption: "simple web planetarium",
+    icon: "assets/images/zenith_icon.webp",
     view_link: Some("https://nar1nari.space/zenith/"),
     read_component: || ZenithRead().into_any().into_view(),
 };

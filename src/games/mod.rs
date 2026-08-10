@@ -26,13 +26,11 @@ pub async fn fetch_games() -> Result<Vec<Game>, String> {
     let status = response.status();
 
     if !(200..300).contains(&status) {
-        return Err(
-            response
-                .json::<ErrorResponse>()
-                .await
-                .map(|e| e.detail)
-                .unwrap_or_else(|_| format!("Server Error: {status}"))
-        );
+        return Err(response
+            .json::<ErrorResponse>()
+            .await
+            .map(|e| e.detail)
+            .unwrap_or_else(|_| format!("Server Error: {status}")));
     }
 
     response

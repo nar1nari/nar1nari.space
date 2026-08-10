@@ -7,10 +7,7 @@ use crate::projects::Project;
 pub fn ProjectCard(#[prop()] project: &'static Project) -> impl IntoView {
     view! {
         <section class="project-card">
-            <img
-                src=format!("assets/images/{}_icon.webp", project.slug)
-                alt=format!("{} icon", project.slug)
-            />
+            <img src=project.icon alt=format!("{} icon", project.slug) />
 
             <div class="project-info">
                 <div>
@@ -18,12 +15,20 @@ pub fn ProjectCard(#[prop()] project: &'static Project) -> impl IntoView {
                     <p>{project.desctiption}</p>
                 </div>
                 <nav>
-                    <a href=format!("/projects/{}/read", project.slug)> <i class="icon">" "</i> "Read"</a>
-                    {
-                        project
-                            .view_link
-                            .map(|link| view! { <NewTabLink href=link> <i class="icon">" "</i> "View"</NewTabLink> })
-                    }
+                    <a href=format!("/projects/{}/read", project.slug)>
+                        <i class="icon">" "</i>
+                        "Read"
+                    </a>
+                    {project
+                        .view_link
+                        .map(|link| {
+                            view! {
+                                <NewTabLink href=link>
+                                    <i class="icon">" "</i>
+                                    "View"
+                                </NewTabLink>
+                            }
+                        })}
                 </nav>
             </div>
         </section>

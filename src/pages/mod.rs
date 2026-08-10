@@ -1,8 +1,8 @@
 pub mod blog;
 pub mod blog_page;
+pub mod games;
 pub mod home;
 pub mod music;
 pub mod not_found;
 pub mod project_page;
 pub mod projects;
-pub mod games;

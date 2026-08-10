@@ -7,6 +7,7 @@ pub const PROJECT: Project = Project {
     name: "Track presence",
     slug: "trackpresence",
     desctiption: "Lightweight Discord music status",
+    icon: "assets/images/trackpresence_icon.webp",
     view_link: Some("https://crates.io/crates/track_presence"),
     read_component: || TrackPresenceRead().into_any().into_view(),
 };
@@ -21,9 +22,7 @@ pub fn TrackPresenceRead() -> impl IntoView {
         <p>
             "Track Presence reads information about the currently playing music in your system media player and displays it as Discord Rich Presence."
         </p>
-        <p>
-            "At the moment, it supports Linux via MPRIS, and Windows via Windows Media."
-        </p>
+        <p>"At the moment, it supports Linux via MPRIS, and Windows via Windows Media."</p>
 
         <p>
             "Track Presence is available on crates.io, so you can install it using Cargo: "

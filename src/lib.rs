@@ -4,10 +4,10 @@ use leptos_router::{components::*, path};
 
 mod blogs;
 mod components;
+mod games;
 mod music;
 mod pages;
 mod projects;
-mod games;
 
 use crate::components::new_tab_link::NewTabLink;
 use crate::pages::*;
