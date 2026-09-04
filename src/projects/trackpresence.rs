@@ -8,7 +8,7 @@ pub const PROJECT: Project = Project {
     slug: "trackpresence",
     desctiption: "Lightweight Discord music status",
     icon: "assets/images/trackpresence_icon.webp",
-    view_link: Some("https://crates.io/crates/track_presence"),
+    view_link: Some("https://crates.io/crates/trackpresence"),
     read_component: || TrackPresenceRead().into_any().into_view(),
 };
 
@@ -26,7 +26,7 @@ pub fn TrackPresenceRead() -> impl IntoView {
 
         <p>
             "Track Presence is available on crates.io, so you can install it using Cargo: "
-            <NewTabLink href="https://crates.io/crates/track_presence">"click"</NewTabLink> "."
+            <NewTabLink href="https://crates.io/crates/trackpresence">"click"</NewTabLink> "."
         </p>
     }
 }
