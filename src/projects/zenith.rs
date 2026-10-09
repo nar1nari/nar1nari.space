@@ -8,7 +8,7 @@ pub const PROJECT: Project = Project {
     slug: "zenith",
     desctiption: "simple web planetarium",
     icon: "assets/images/zenith_icon.webp",
-    view_link: Some("https://nar1nari.space/zenith/"),
+    view_link: Some("https://nar1nari.online/zenith/"),
     read_component: || ZenithRead().into_any().into_view(),
 };
 
@@ -27,7 +27,7 @@ pub fn ZenithRead() -> impl IntoView {
         <p>
             "You can find the source code "
             <NewTabLink href="https://github.com/nar1nari/zenith/">"here"</NewTabLink>
-            " and try it out " <NewTabLink href="https://nar1nari.space/zenith/">"here"</NewTabLink>
+            " and try it out " <NewTabLink href="https://nar1nari.online/zenith/">"here"</NewTabLink>
             "."
         </p>
     }

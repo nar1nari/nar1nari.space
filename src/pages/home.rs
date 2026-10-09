@@ -31,9 +31,9 @@ pub fn Home() -> impl IntoView {
     });
 
     view! {
-        <Title text="nar1nari space" />
+        <Title text="nar1nari.online" />
 
-        <h2>"Hi, and welcome to " <mark>"nar1nari.space"</mark></h2>
+        <h2>"Hi, and welcome to " <mark>"nar1nari.online"</mark></h2>
         <p>
             "I’m a software developer focused on building automation systems, bots, and backend services that eliminate manual work."
         </p>
