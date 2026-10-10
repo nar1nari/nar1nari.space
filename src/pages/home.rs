@@ -35,35 +35,28 @@ pub fn Home() -> impl IntoView {
 
         <h2>"Hi, and welcome to " <mark>"nar1nari.online"</mark></h2>
         <p>
-            "I’m a software developer focused on building automation systems, bots, and backend services that eliminate manual work."
+            "I am a software developer primarily interested in backend development and bot creation."
         </p>
         <p>
-            "Personally, my heart belongs to Rust and Python. When I'm not writing production backend systems, you'll find me experimenting with UI frameworks like Leptos, tinkering with desktop applications, or messing around with game engines."
+            "I mainly use Rust, Python, and JS/TS, tho I also experiment and use other technologies - for instance, I sometimes create Minecraft mods and plugins in Java and develop games in Godot."
         </p>
         <p>
-            "I like clean code, surreal humor, and building tools that make life a little easier. Feel free to explore my blog posts or check out my projects."
+            "This website serves as a little archive of my projects and work. Feel free to look around or get in touch via the links below."
         </p>
 
         <div class="section-grid">
             <section>
-                <h2>"Facts about me"</h2>
+                <h2>"About me"</h2>
                 <ul>
                     <li>"Viktor"</li>
                     <li>{age} " y.o"</li>
                     <li>"🇰🇿"</li>
                     <li>"IT&AI student"</li>
-                    <li class="heart-li">"FGSFDS"</li>
-                    <li class="heart-li">
-                        <NewTabLink href="https://rinfiler.ru/">"Akro"</NewTabLink>
-                    </li>
-                    <li class="heart-li">
-                        <NewTabLink href="https://hlebcraft.su/">"Хлебкрафт"</NewTabLink>
-                    </li>
                 </ul>
             </section>
 
             <section>
-                <h2>"Find me here"</h2>
+                <h2>"Links"</h2>
                 <p>
                     <i class="icon">"󰊤 "</i>
                     <NewTabLink href="https://github.com/nar1nari/">"GitHub"</NewTabLink>
@@ -73,11 +66,6 @@ pub fn Home() -> impl IntoView {
                     <br />
                     <i class="icon">" "</i>
                     "good_vibrations"
-                    <br />
-                    <i class="icon">" "</i>
-                    <NewTabLink href="https://www.upwork.com/freelancers/~010ac7b5be702b579d">
-                        "Upwork"
-                    </NewTabLink>
                     <br />
                     <i class="icon">" "</i>
                     <a href="mailto:nar1nariq@proton.me">"nar1nariq@proton.me"</a>
